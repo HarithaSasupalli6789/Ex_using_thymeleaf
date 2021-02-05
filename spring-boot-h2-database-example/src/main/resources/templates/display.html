@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Details</title>
+<link th:href="@{/IndexStyling.css}" rel="stylesheet" />
+</head>
+<body>
+
+<table>
+
+    <tr>
+    	<th>id</th>
+        <th>forename</th>
+        <th>surname</th>
+        <th>age</th>
+        <th>company</th>
+        <th>postcode</th>
+    </tr>
+
+    <tr th:each="data : ${display}">
+    	<td th:text="${data.id}">id</td>
+        <td th:text="${data.forename}">forename</td>
+        <td th:text="${data.surname}">surname</td>
+        <td th:text="${data.age}">age</td>
+         <td th:text="${data.company}">company</td>
+          <td th:text="${data.postcode}">postcode</td>
+    </tr>
+</table>
+<br/>
+<br/>
+</body>
+</html>

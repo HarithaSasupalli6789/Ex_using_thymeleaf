@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="ISO-8859-1">
+<title>Enter Data</title>
+<link th:href="@{/IndexStyling.css}" rel="stylesheet" />
+</head>
+<body>
+<form action="save" method="post">    
+<table> 
+
+<tr>    
+<td><label for="id">id</label></td>    
+<td><input type="number" name="id" required></input></td>    
+</tr> 
+
+<tr>    
+<td><label for="forename">Forename</label></td>    
+<td><input type="text" name="forename" required></input></td>    
+ </tr>  
+   
+<tr>    
+<td><label for="surname">Surname</label></td>    
+<td><input type="text" name="Surname" required></input></td>    
+ </tr>    
+ 
+
+<tr>    
+<td><label for="age">Age</label></td>    
+<td><input type="number" name="age" min="1" required></input></td>    
+</tr>    
+
+<tr>    
+<td><label for="company">Company</label></td>    
+<td><input type="text" name="company" required></input></td>    
+</tr>  
+
+<tr>    
+<td><label for="postcode">Postcode</label></td>    
+<td><input type="number" name="postcode" min="1" required></input></td>    
+</tr>
+
+<tr>
+<td><input type="reset" value="Reset"></input></td>       
+<td><input type="submit" value="Submit"></input></td> 
+  
+</tr>    
+</table>
+</form>
+</body>
+</html>
+
+
