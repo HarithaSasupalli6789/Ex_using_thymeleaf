@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Details</title>
@@ -8,14 +8,15 @@
 <body>
 
 <table>
+<caption>Employee Details</caption>
 
     <tr>
-    	<th>id</th>
-        <th>forename</th>
-        <th>surname</th>
-        <th>age</th>
-        <th>company</th>
-        <th>postcode</th>
+    	<th scope="row">id</th>
+        <th scope="row">forename</th>
+        <th scope="row">surname</th>
+        <th scope="row">age</th>
+        <th scope="row">company</th>
+        <th scope="row">postcode</th>
     </tr>
 
     <tr th:each="data : ${display}">

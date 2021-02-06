@@ -6,13 +6,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class producerModel   
+public class ProducerModel   
 {  
 	@Id
 	@Column
 	int id;
-	
-
 
 	@Column
 	String forename;  
@@ -76,8 +74,7 @@ public class producerModel
 	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
-	public producerModel(int id, String forename, String surname, int age, String company, int postcode) {
-		//super();
+	public ProducerModel(int id, String forename, String surname, int age, String company, int postcode) {
 		this.id = id;
 		this.forename = forename;
 		this.surname = surname;
@@ -85,7 +82,7 @@ public class producerModel
 		this.company = company;
 		this.postcode = postcode;
 	}
-	public producerModel(){
+	public ProducerModel(){
 		   super();
 		}
 }

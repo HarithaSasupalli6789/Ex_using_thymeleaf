@@ -1,37 +1,38 @@
 package com.javatpoint.service;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javatpoint.controller.UserNotFoundException;
-import com.javatpoint.model.producerModel;
-import com.javatpoint.repository.producerRepository;
+import com.javatpoint.model.ProducerModel;
+import com.javatpoint.repository.ProducerRepository;
 
 @Service
-public class producerServices {
+public class ProducerServices {
 @Autowired
-producerRepository commurepository;
+ProducerRepository commurepository;
 
-public producerModel upload(producerModel student)
+public ProducerModel upload(ProducerModel student)
 {
 commurepository.save(student);
 return student;
 }
-public List<producerModel> getAllStudent()
+public List<ProducerModel> getAllStudent()
 {
-List<producerModel> students = new ArrayList<producerModel>();
+List<ProducerModel> students = new ArrayList<>();
 commurepository.findAll().forEach(student -> students.add(student));
 return students;
 }
-public producerModel getStudentById(int id) throws UserNotFoundException
+public ProducerModel getStudentById(int id) throws UserNotFoundException
 {
 	if(exists(id))
 		return commurepository.findById(id).get();
 	else
 		throw new UserNotFoundException("The given id is not present");
-	
 }
 public boolean exists(int id)
 {
@@ -48,8 +49,6 @@ public String delete(int id) throws UserNotFoundException
 	else
 	{
 		throw new UserNotFoundException("The given id is not present");
-	}
-	//return null;
-	
+	}	
 } 
 }

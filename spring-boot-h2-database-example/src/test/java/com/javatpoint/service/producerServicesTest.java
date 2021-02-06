@@ -1,6 +1,7 @@
 package com.javatpoint.service;
 
 import java.util.Optional;
+
 import java.util.stream.Collectors;
  
 import java.util.stream.Stream;
@@ -14,38 +15,37 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.mockito.Mockito.verify;
-
 import com.javatpoint.controller.UserNotFoundException;
-import com.javatpoint.model.producerModel;
-import com.javatpoint.repository.producerRepository;
+import com.javatpoint.model.ProducerModel;
+import com.javatpoint.repository.ProducerRepository;
 import static org.mockito.Mockito.times;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-class producerServicesTest {
-
+class ProducerServicesTest {
 
 	@InjectMocks
-	private producerServices service;
+	private ProducerServices service;
 	
 	@Mock
-	private producerRepository repo;
+	private ProducerRepository repo;
+
 
 	
 	//GET ALL
 	@Test
-	public void getAllStudentTest()
+	void getAllStudentTest()
 	{
 		when(repo.findAll()).thenReturn(Stream
-				.of(new producerModel(1,"haritha","sasupalli",21,"TCS",532421)).collect(Collectors.toList()));
+				.of(new ProducerModel(1,"haritha","sasupalli",21,"TCS",532421)).collect(Collectors.toList()));
 		assertEquals(1, service.getAllStudent().size());
 	}
 	
 	//GETBYID
 	@Test
-	public void getStudentByIdTest() throws UserNotFoundException {
+	 void getStudentByIdTest() throws UserNotFoundException {
 		int id=1;
-		producerModel user = new producerModel(1,"haritha","sasupalli",21,"TCS",532421);
+		ProducerModel user = new ProducerModel(1,"haritha","sasupalli",21,"TCS",532421);
 		when(service.exists(Mockito.anyInt())).thenReturn(true);
 		when(repo.findById(id))
 				.thenReturn(Optional.of(user));
@@ -53,16 +53,16 @@ class producerServicesTest {
 	}
 	//DELETE
 	@Test
-	public void deleteTest() throws UserNotFoundException {
-		producerModel user = new producerModel(1,"haritha","sasupalli",21,"TCS",532421);
+	 void deleteTest() throws UserNotFoundException {
+		ProducerModel user = new ProducerModel(1,"haritha","sasupalli",21,"TCS",532421);
 		service.delete(1);
 		verify(repo, times(1)).delete(user);
 	}
 	
 	//POST
 	@Test
-	public void uploadTest() {
-		producerModel user = new producerModel(1,"haritha","sasupalli",21,"TCS",532421);
+	 void uploadTest() {
+		ProducerModel user = new ProducerModel(1,"haritha","sasupalli",21,"TCS",532421);
 		when(repo.save(user)).thenReturn(user);
 		assertEquals(user, service.upload(user));
 	}
